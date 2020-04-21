@@ -12,6 +12,9 @@ func main() {
 	}
 }
 
+// https://github.com/ekimekim/neptunesfolly/blob/master/docs/api.txt
+// https://github.com/wrenoud/phpTriton
+
 var RootCmd = &cobra.Command{
 	Use:   "np",
 	Short: "cli for interacting with Neptune's Pride",
@@ -25,7 +28,7 @@ var RootCmd = &cobra.Command{
 // Add this comment to every init if you copy-pasta stuff: Go runs init before main. If you see an init function
 // that means "this code is being run like a static function initialization in Java"
 func init() {
-	RootCmd.AddCommand()
+	RootCmd.AddCommand(cmd.TestCommand)
 	RootCmd.PersistentFlags().StringP("api-token", "t", "", "The token for Neptune's Pride's api")
 }
 
