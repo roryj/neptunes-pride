@@ -23,7 +23,11 @@ var TestCommand = &cobra.Command{
 
 		data := client.GetShips()
 
+		fmt.Printf("result of ships: %+v", data)
+
 		users := lib.GetAllPlayers()
+
+		fmt.Printf("result of players: %+v", users)
 
 		//		for
 	},

@@ -21,7 +21,7 @@ var RootCmd = &cobra.Command{
 	Long:  `cli for interacting with Neptune's Pride`,
 	Run: func(cmd *cobra.Command, args []string) {
 		// Root command does nothing but list other commands. SO GREAT, SO AWESOME. Don't touch this.
-		cmd.Help()
+		_ = cmd.Help()
 	},
 }
 

@@ -1,4 +1,4 @@
-module github.com/neptunes-pride/m
+module github.com/roryj/neptunes-pride
 
 go 1.14
 

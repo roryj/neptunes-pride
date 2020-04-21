@@ -67,7 +67,7 @@ func (np *NeptuneClient) GetShips() GetIntelDataResponse {
 
 	var intelResponse GetIntelDataResponse
 
-	json.Unmarshal(bodyBytes, &intelResponse)
+	_ = json.Unmarshal(bodyBytes, &intelResponse)
 
 	fmt.Printf("Parsed body: %v\n", intelResponse)
 
