@@ -1,9 +1,9 @@
 package cmd
 
 import (
-	"github.com/spf13/cobra"
 	"fmt"
 	"github.com/roryj/neptunes-pride/lib"
+	"github.com/spf13/cobra"
 )
 
 var TestCommand = &cobra.Command{
@@ -15,11 +15,11 @@ var TestCommand = &cobra.Command{
 
 		fmt.Println("Creating client")
 		client := lib.NewNeptuneClient("test", config)
-		fmt.Println( "Client created")
+		fmt.Println("Client created")
 
-		fmt.Println( "Logging in")
+		fmt.Println("Logging in")
 		client.Login(config.Username, config.Password)
-		fmt.Println( "Logged in")
+		fmt.Println("Logged in")
 
 		data := client.GetShips()
 

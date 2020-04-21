@@ -1,19 +1,19 @@
 package lib
 
 import (
-	"net/http"
-	"mime/multipart"
 	"bytes"
+	"encoding/json"
 	"fmt"
 	"io/ioutil"
-	"encoding/json"
+	"mime/multipart"
+	"net/http"
 )
 
 const (
 	neptuneBaseEnpdoint = "https://np.ironhelmet.com"
-	loginEndpoint = "arequest/login"
-	getShipsEndpoint = "grequest/intel_data"
-	cookieHeaderKey = "Set-Cookie"
+	loginEndpoint       = "arequest/login"
+	getShipsEndpoint    = "grequest/intel_data"
+	cookieHeaderKey     = "Set-Cookie"
 )
 
 type NeptuneClientInterface interface {
@@ -23,15 +23,15 @@ type NeptuneClientInterface interface {
 
 type NeptuneClient struct {
 	GameConfig
-	apiKey	string
-	authCookies	string
+	apiKey      string
+	authCookies string
 }
 
 func NewNeptuneClient(apiKey string, config GameConfig) *NeptuneClient {
 	return &NeptuneClient{
-		apiKey: apiKey,
+		apiKey:      apiKey,
 		authCookies: "",
-		GameConfig: config,
+		GameConfig:  config,
 	}
 }
 
@@ -50,7 +50,7 @@ func (np *NeptuneClient) GetShips() GetIntelDataResponse {
 	req.Header.Set("Content-Type", formDataContentType)
 	req.Header.Set("Cookie", np.authCookies)
 
-	fmt.Printf("Full request: %v\n",  req)
+	fmt.Printf("Full request: %v\n", req)
 
 	client := &http.Client{}
 	res, err := client.Do(req)
@@ -103,7 +103,7 @@ func createRequestFormData(formData map[string]string) (bytes.Buffer, string, er
 	w := multipart.NewWriter(&b)
 	defer w.Close()
 	for key, value := range formData {
-		fw, err := w.CreateFormField(key);
+		fw, err := w.CreateFormField(key)
 		if err != nil {
 			return b, "", err
 		}

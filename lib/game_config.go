@@ -1,9 +1,9 @@
 package lib
 
 import (
-	"os"
 	"encoding/json"
 	"fmt"
+	"os"
 )
 
 const defaultConfigPath = "./config.json"
@@ -11,7 +11,7 @@ const defaultConfigPath = "./config.json"
 type GameConfig struct {
 	Username string `json:"username"`
 	Password string `json:"password"`
-	GameId	string `json:"game_id"`
+	GameId   string `json:"game_id"`
 }
 
 func ParseConfigFile() GameConfig {

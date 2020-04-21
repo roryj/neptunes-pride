@@ -1,7 +1,7 @@
 package lib
 
 type GetIntelDataResponse struct {
-	Event string `json:"event"`
+	Event  string `json:"event"`
 	Report Report `json:"report"`
 }
 
@@ -10,6 +10,6 @@ type Report struct {
 }
 
 type ReportDataPoint struct {
-	Tick int `json:"tick"`
+	Tick    int           `json:"tick"`
 	Players []PlayerIntel `json:"players"`
 }

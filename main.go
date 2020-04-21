@@ -2,8 +2,8 @@ package main
 
 import (
 	"github.com/roryj/neptunes-pride/cmd"
-	"log"
 	"github.com/spf13/cobra"
+	"log"
 )
 
 func main() {
@@ -31,4 +31,3 @@ func init() {
 	RootCmd.AddCommand(cmd.TestCommand)
 	RootCmd.PersistentFlags().StringP("api-token", "t", "", "The token for Neptune's Pride's api")
 }
-
