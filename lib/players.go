@@ -23,45 +23,45 @@ type Player struct {
 	PlayerIntel
 }
 
-func GetAllPlayers() []*Player {
-	var allPlayers []*Player
+func GetAllPlayers() []Player {
+	var allPlayers []Player
 
-	allPlayers = append(allPlayers, &Player{
+	allPlayers = append(allPlayers, Player{
 		Uid:        0,
 		Alias:      "Kodos",
 		PlayerName: "Jordy",
 	})
-	allPlayers = append(allPlayers, &Player{
+	allPlayers = append(allPlayers, Player{
 		Uid:        1,
 		Alias:      "ManOfSax",
 		PlayerName: "Zack",
 	})
-	allPlayers = append(allPlayers, &Player{
+	allPlayers = append(allPlayers, Player{
 		Uid:        2,
 		Alias:      "Lords of Kobol",
 		PlayerName: "Matt",
 	})
-	allPlayers = append(allPlayers, &Player{
+	allPlayers = append(allPlayers, Player{
 		Uid:        3,
 		Alias:      "Soggy Sea Dongs",
 		PlayerName: "Elliot",
 	})
-	allPlayers = append(allPlayers, &Player{
+	allPlayers = append(allPlayers, Player{
 		Uid:        4,
 		Alias:      "Slaybraham",
 		PlayerName: "Edd",
 	})
-	allPlayers = append(allPlayers, &Player{
+	allPlayers = append(allPlayers, Player{
 		Uid:        5,
 		Alias:      "mr worldwide",
 		PlayerName: "Rory",
 	})
-	allPlayers = append(allPlayers, &Player{
+	allPlayers = append(allPlayers, Player{
 		Uid:        6,
 		Alias:      "Taint",
 		PlayerName: "Nick",
 	})
-	allPlayers = append(allPlayers, &Player{
+	allPlayers = append(allPlayers, Player{
 		Uid:        7,
 		Alias:      "Sir Hotdogsa Sandwich",
 		PlayerName: "Casey",
