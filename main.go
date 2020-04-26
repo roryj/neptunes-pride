@@ -1,9 +1,10 @@
 package main
 
 import (
+	"log"
+
 	"github.com/roryj/neptunes-pride/cmd"
 	"github.com/spf13/cobra"
-	"log"
 )
 
 func main() {
@@ -28,6 +29,7 @@ var RootCmd = &cobra.Command{
 // Add this comment to every init if you copy-pasta stuff: Go runs init before main. If you see an init function
 // that means "this code is being run like a static function initialization in Java"
 func init() {
-	RootCmd.AddCommand(cmd.TestCommand)
+	RootCmd.AddCommand(cmd.GetShipsCommand)
 	RootCmd.PersistentFlags().StringP("api-token", "t", "", "The token for Neptune's Pride's api")
+	RootCmd.PersistentFlags().StringP("game-id", "g", "", "The game idea to get data for")
 }

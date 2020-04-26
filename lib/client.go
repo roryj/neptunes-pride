@@ -22,21 +22,23 @@ type NeptuneClientInterface interface {
 }
 
 type NeptuneClient struct {
-	GameConfig
+	userConfig  UserConfig
+	gameID      string
 	apiKey      string
 	authCookies string
 }
 
-func NewNeptuneClient(apiKey string, config GameConfig) *NeptuneClient {
+func NewNeptuneClient(gameID string, apiKey string, config UserConfig) *NeptuneClient {
 	return &NeptuneClient{
+		gameID:      gameID,
 		apiKey:      apiKey,
 		authCookies: "",
-		GameConfig:  config,
+		userConfig:  config,
 	}
 }
 
 func (np *NeptuneClient) GetShips() GetIntelDataResponse {
-	orderkeys := map[string]string{"type": "intel_data", "game_number": np.GameId}
+	orderkeys := map[string]string{"type": "intel_data", "game_number": np.gameID}
 
 	formData, formDataContentType, err := createRequestFormData(orderkeys)
 	if err != nil {
@@ -50,7 +52,7 @@ func (np *NeptuneClient) GetShips() GetIntelDataResponse {
 	req.Header.Set("Content-Type", formDataContentType)
 	req.Header.Set("Cookie", np.authCookies)
 
-	fmt.Printf("Full request: %v\n", req)
+	// fmt.Printf("Full request: %v\n", req)
 
 	client := &http.Client{}
 	res, err := client.Do(req)
@@ -74,9 +76,9 @@ func (np *NeptuneClient) GetShips() GetIntelDataResponse {
 	return intelResponse
 }
 
-func (np *NeptuneClient) Login(username, password string) {
+func (np *NeptuneClient) Login() {
 
-	loginKeys := map[string]string{"type": "login", "alias": username, "password": password}
+	loginKeys := map[string]string{"type": "login", "alias": np.userConfig.Username, "password": np.userConfig.Password}
 
 	formData, formDataContentType, err := createRequestFormData(loginKeys)
 	if err != nil {

@@ -8,24 +8,23 @@ import (
 
 const defaultConfigPath = "./config.json"
 
-type GameConfig struct {
+type UserConfig struct {
 	Username string `json:"username"`
 	Password string `json:"password"`
-	GameId   string `json:"game_id"`
 }
 
-func ParseConfigFile() GameConfig {
+func ParseConfigFile() UserConfig {
 	return ParseConfigFileWithPath(defaultConfigPath)
 }
 
-func ParseConfigFileWithPath(filePath string) GameConfig {
+func ParseConfigFileWithPath(filePath string) UserConfig {
 	f, err := os.Open(filePath)
 	if err != nil {
 		panic(err)
 	}
 	defer f.Close()
 
-	var config GameConfig
+	var config UserConfig
 
 	jsonParser := json.NewDecoder(f)
 	if err = jsonParser.Decode(&config); err != nil {
